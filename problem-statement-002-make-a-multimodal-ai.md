@@ -1,8 +1,6 @@
 # 🎨 Make a Multimodal AI  
 *Generate Stylized Art + Captions from a Single Seed*
 
----
-
 ## 🚀 Overview
 
 You're building an AI system that blends creativity and cognition — a **multimodal model** that generates:
@@ -14,7 +12,7 @@ From a single **random seed**, your model should output both — as one unified 
 
 🎨 [Art Images Dataset — Drawing, Painting, Sculpture, Engraving](https://www.kaggle.com/thedownhill/art-images-drawings-painting-sculpture-engraving)
 
----
+
 
 ## 🎯 Your Mission
 
@@ -26,7 +24,7 @@ Design a model that can:
 
 This task is about creating a **joint generative model**, where both outputs are derived from the same core representation.
 
----
+
 
 ## 🧠 What You’ll Build
 
@@ -38,7 +36,7 @@ Choose a single artistic medium or style from the dataset (e.g., engravings, wat
 - Use a captioning model (e.g. BLIP2) to create descriptive text for each image  
 - Align image-caption pairs for training your model
 
----
+
 
 ### ✅ 2. Unified Multimodal Generator (Image + Caption from a Single Seed)
 
@@ -49,7 +47,7 @@ Create a **single model or tightly integrated system** that, given a random seed
 
 This is **not** a two-stage pipeline (e.g., image → caption). Both outputs should come **from the same latent input**, reflecting shared semantics.
 
----
+
 
 ### 💡 Suggested Architectures
 
@@ -69,7 +67,7 @@ This is **not** a two-stage pipeline (e.g., image → caption). Both outputs sho
   - Generate both outputs from the same seed and align them in a shared latent space  
   - Optionally train using a contrastive or CLIP-like loss
 
----
+
 
 ### 🔁 Pseudocode Example
 
@@ -86,7 +84,7 @@ return {
 
 > Bonus if the caption reflects the style or subject matter (e.g., “a bronze sculpture of a roaring lion” instead of “an animal”).
 
----
+
 
 ## 📂 Deliverables
 
@@ -106,7 +104,7 @@ return {
    * Reasoning and tradeoffs
    * How your pipeline could scale to 100k+ generations
 
----
+
 
 ## 📈 Evaluation Criteria
 
@@ -118,7 +116,7 @@ This task is open-ended and creative, but we’ll evaluate based on:
 * ✅ **Code Quality**: modular, clean, and reproducible
 * ✅ **Creativity**: clever architectural or training decisions encouraged!
 
----
+
 
 ## 🧱 Architecture Tips
 
@@ -127,7 +125,7 @@ This task is open-ended and creative, but we’ll evaluate based on:
 * Store data in **JSONL** or **Parquet** for long-term scaling
 * Log intermediate results with **W\&B**, **TensorBoard**, or custom dashboards
 
----
+
 
 ## 💡 Bonus Points
 
@@ -136,7 +134,7 @@ This task is open-ended and creative, but we’ll evaluate based on:
 * 🔁 Add latent space interpolation for smooth transitions
 * 💬 Share a **demo** others can play with!
 
----
+
 
 ## 🗣 Need Help?
 
@@ -144,7 +142,7 @@ Want to brainstorm, validate your direction, or show early work?
 
 Reach us at **soumyadeep [at] dashtoon.com** — we’re excited to see how you build.
 
----
+
 
 ## 🔚 TL;DR
 
@@ -153,7 +151,7 @@ Reach us at **soumyadeep [at] dashtoon.com** — we’re excited to see how you 
 * Focus on quality, scale, and creative alignment
 * Deliver something that feels **cohesive** and **intentional**
 
----
+
 
 Happy building!
 — Dashverse Research Team
