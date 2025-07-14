@@ -1,14 +1,8 @@
----
-
 # 🕵️ Who’s That Character?
-
----
 
 Build a **scalable, modular pipeline** to extract clean, structured metadata from a noisy, large-scale dataset of character images or textual descriptions.
 
 This isn’t a toy problem. Imagine dealing with **millions of messy, inconsistently labeled character entries**, and needing to create a foundation layer for training our next-gen character generation models. If the pipeline breaks at 5M samples — it doesn’t work.
-
----
 
 ## 📦 Dataset Realities
 
@@ -26,8 +20,6 @@ Start with this open dataset:
 🔗 - https://huggingface.co/datasets/cagliostrolab/860k-ordered-tags
 
 Feel free to use additional sources — but assume that the end goal is to **scale to \~5M entries**.
-
----
 
 ## 🧩 The Goal
 
@@ -47,8 +39,6 @@ Extract the following **structured attributes** for each character (from an imag
 ### 🔍 Edge Case Rule
 
 If an image contains multiple characters, you can skip it or flag it as ambiguous. Focus only on clean, **single-character extractions**.
-
----
 
 ## 🔁 Output Format
 
@@ -70,8 +60,6 @@ Return each character's attributes in a clean, machine-readable format:
 
 This format will be used to train generative models that take this schema and produce corresponding images.
 
----
-
 ## 🚚 Deliverables
 
 Build and submit **one of** the following:
@@ -89,8 +77,6 @@ Either version should include:
 * The **core pipeline code**
 * Working demo with 10–50 sample records
 * A brief write-up on how it would scale to 5M samples
-
----
 
 ## 🔍 What We’re Evaluating
 
@@ -113,8 +99,6 @@ This task is **not** about a perfect classifier. It’s about building a robust,
 * Does the output follow the schema?
 * Does it capture a consistent visual identity?
 
----
-
 ## 🧠 Bonus Points
 
 * Preprocessing for **style normalization** or **occlusion handling**
@@ -125,13 +109,9 @@ This task is **not** about a perfect classifier. It’s about building a robust,
 
 > 💡 Tip: Build like it’s going into production — not like it’s staying in a Colab notebook.
 
----
-
 ## 🧱 Architecture Suggestions
 
 This is an open-ended problem — and that’s intentional. But here are some ideas and best practices to help you think about how this pipeline might scale in the real world:
-
----
 
 ### 🧩 1. Modular Design
 
@@ -142,8 +122,6 @@ Break your pipeline into **clearly defined stages**. For example:
 ```
 
 Each stage should be independently testable and replaceable.
-
----
 
 ### 🔍 2. Model Choices
 
@@ -164,8 +142,6 @@ Depending on your approach (image vs text input), you could explore:
   * Start with zero-shot classification using CLIP similarity
   * Iterate with fine-tuned adapters (e.g., LoRA heads for tagging)
 
----
-
 ### ⚙️ 3. Processing at Scale
 
 5M samples is not trivial. Think about:
@@ -182,8 +158,6 @@ Cache intermediate results (like embeddings) using:
 * Redis / SQLite for prototyping
 * Parquet or Arrow for storage-backed processing
 
----
-
 ### ☁️ 4. Deployment & Tools
 
 If you want to go beyond notebooks:
@@ -193,8 +167,6 @@ If you want to go beyond notebooks:
 * **Celery** or **RQ** for background job queues
 * **Docker** to package your app for portability
 
----
-
 ### 💾 5. Output Storage
 
 Make sure your results are structured and easy to consume:
@@ -202,8 +174,6 @@ Make sure your results are structured and easy to consume:
 * Store in **CSV**, **JSONL**, or **SQLite/Postgres**
 * Consider adding a **data schema or manifest** for consistency
 * Optionally group results by dataset/image ID for traceability
-
----
 
 ### 🧼 6. Preprocessing & Cleaning
 
@@ -213,8 +183,6 @@ This often makes or breaks performance at scale:
 * Normalize images for lighting, size, cropping
 * Use OCR / vision-language alignment to clean mislabeled entries
 * Cluster visually similar characters to reduce redundancy
-
----
 
 ## 🛠️ TL;DR: Your Tech Stack Might Look Like...
 
@@ -226,11 +194,7 @@ Storage: JSONL / SQLite / Parquet
 Deployment (Optional): FastAPI + Celery + Redis
 ```
 
----
-
 Build what works — just make sure it **scales**, **fails gracefully**, and **leaves room to grow**.
 
 Let us know if you'd like to chat ideas or trade notes. We love talking pipelines.
-**[ayushman@dashtoon.com](mailto:ayushman@dashtoon.com)**
-
----
+****soumyadeep [at] dashtoon.com****
