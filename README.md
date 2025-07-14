@@ -1,115 +1,105 @@
-# 🧪 Join Dashverse Research
+# Join Dashverse Research
 
 **Build the Future of Generative Content Creation**
 
-Welcome to **Dashverse** — where we don't just use generative AI… we **push it to its limits**.
+Welcome to **Dashverse** — where we don't just use generative AI, we push it to its limits.
 
-Backed by Z47, PeakXV, and Stellaris, we're a small team building powerful creation tools for the next generation of storytellers. Our products — like **[Frameo.ai](https://frameo.ai/create)** and **[Dashtoon Studio](https://studio.dashtoon.ai/)** — let creators instantly turn ideas into viral videos, comics, and more using AI. If you're someone who thrives on deep technical problems *and* wants to see your work used by millions — this is your playground.
+We are a small, fast-moving team building powerful tools for the next generation of storytellers. Our products — like [Frameo.ai](https://frameo.ai/create) and [Dashtoon Studio](https://studio.dashtoon.ai/) — enable creators to instantly turn ideas into high-quality videos, comics, and more using AI. If you're someone who thrives on solving deep technical problems and wants to see your work used by millions, this is your playground.
 
-## 🧠 The Role: Research Engineer
+## The Role: Research Engineer
 
-This isn't your average research gig.
+This isn't your average research role.
+
+At Dashverse, your work directly impacts creators. You’ll get to see the delight on a user's face when a tool you've built helps them bring their imagination to life — in seconds, not hours. This is a rare opportunity to move fast and shape the future of generative media.
 
 You're not here to write papers and wait six months for reviews. You're here to:
+- Prototype bleeding-edge generative models.
+- Ship tools that change how stories are made.
+- Build the infra and internal tools to move 10x faster.
 
-* Prototype bleeding-edge generative models
-* Ship tools that change how stories are made
-* Build the infra and internal tools to move 10x faster
+## What We're Solving
 
-## 🧩 What We're Solving
+We’re building real tools for real creators — and that means diving deep into unsolved problems at the frontier of generative media.
 
-We’re not here to slap LoRA on a checkpoint and call it innovation. We’re building real tools for real creators — and that means diving deep into unsolved problems at the frontier of generative media.
+### Advancing Visual Quality with Diffusion
 
-Here are just a few areas we’re actively working on:
+Diffusion models are powerful, but raw outputs often fall short. Whether it's a single comic panel or 120 frames of an AI-generated video, visual quality matters. We're focused on pushing fidelity, coherence, and artistic control to new heights.
 
-### 🎨 Supercharging Visual Quality with Diffusion
+### Controllability at the Core
 
-Diffusion models are powerful — but not always pretty out of the box. Whether it's a single comic panel or 120 frames of an AI-generated video, quality matters — and we're obsessed with pushing it further.
+We're developing **creative tools**, not black boxes. That means giving creators meaningful control over outputs:
+- Text + image multi-modal prompts.
+- Conditioning on pose, expression, scene layout, and panel structure.
+- Temporal control for frame-to-frame consistency in videos.
+- Spatial control for region-specific edits.
 
-### 🎛 Controllability is King
+### Character Identity & Reusability
 
-We're building **creative tools**, not black boxes. That means giving creators the ability to *steer* generations in meaningful ways:
+Characters aren't just faces — they're consistent, recognizable identities. We're building:
+- ID-consistent inpainting to fix or change parts of a character without losing fidelity.
+- Low-data personalization methods (e.g., style or identity adapters).
+- Seamless multi-angle rendering of the same character across scenes or panels.
 
-* Text + image **multi-modal prompts**
-* Conditioning on **pose**, **expression**, **scene layout**, and **panel structure**
-* Temporal control for **frame-to-frame consistency** in videos
-* Spatial control for **region-specific edits**
+This enables creators to design once and reuse intelligently — with style and consistency.
 
-We’re constantly exploring new ways to inject structure and intent into the chaos of generative noise.
+### Scene-Aware Object & Clothing Transfer
 
-### 🧑‍🎤 Identity Matters
+We're building pipelines to enable asset-level swaps (outfits, props, etc.) while preserving visual integrity and scene coherence.
 
-Characters aren’t just faces — they’re brands. We're developing pipelines for:
+Key techniques include:
+- Semantic segmentation with feature-level transfer.
+- Training-free approaches using adapter stacking.
+- Support for both photoreal and stylized (anime, comic) domains.
 
-* **ID-consistent inpainting** to fix or change parts of a character without losing identity
-* **Low-data personalization** (e.g., custom LoRA without fine-tuning)
-* Seamless **multi-angle rendering** of the same character across scenes or panels
+### Training-Free Customization & Distillation
 
-For tools like *Dashtoon Studio*, this means creators can design a character once and use it across dozens of scenes without needing to redraw or re-prompt.
+We're exploring fast, lightweight personalization methods that don’t require full retraining:
+- Tuning-free ID adapters and style injectors.
+- LoRA + ControlNet workflows with zero additional training.
+- Fast model distillation for mobile inference and real-time generation.
 
-### 🧥 Scene-Aware Object & Clothing Transfer
+These innovations unlock high-speed, high-fidelity use in production creator tools.
 
-We’re building tools that let creators swap a character’s outfit, pose, or even **scene props** without breaking the art style or spatial integrity.
+If any of this sparks ideas, feel free to explore one of our sample problems — or fork the repo and show us what you’d build differently.
 
-This includes:
+## What You’ll Work On
 
-* **Semantic segmentation** + feature-level transfer
-* Training-free pipelines using **adapter stacking**
-* Support for both photoreal and stylized (anime/comic) domains
+Here are a few recent open-source drops from our team:
+- [Keyframe LoRA: Video generation using only keyframes](https://insiders.dashtoon.com/introducing-hunyuan-keyframe-lora-open-source-keyframe-based-video-generation/)
+- [Tuning-free ID-consistent inpainting](https://insiders.dashtoon.com/a-road-towards-tuning-free-id-consistent-character-inpainting/)
+- [DashTailor: Object transfer for AI-generated comics](https://insiders.dashtoon.com/dashtailor-training-free-clothing-and-object-transfer-for-ai-comics/)
+- [Adversarial Diffusion Distillation](https://insiders.dashtoon.com/exploring-the-future-of-comic-generation-insights-from-our-adversarial-diffusion-distillation-poc/)
+- [DashAnimeXL: Stylized diffusion for comic-style animations](https://insiders.dashtoon.com/dashanimexl/)
 
-Imagine changing a character from a lab coat to battle armor — with one click.
+## Who We’re Looking For
 
-### 🔄 Training-Free Customization & Distillation
+We don’t care about your resume or degree. We care about what you’ve built, trained, or broken and fixed.
 
-We’re exploring fast, lightweight ways to personalize and adapt models **without full retraining**:
+You might be a good fit if you:
+- Have trained or fine-tuned models like Stable Diffusion, AnimateDiff, or StyleGAN.
+- Are comfortable with PyTorch, LoRA, ControlNet, DreamBooth, or IP-Adapters.
+- Can manage multi-GPU training jobs, optimize inference, and debug issues fast.
+- Prefer to move quickly and own the entire stack from training to UI.
 
-* Tuning-free **ID adapters** and **style injectors**
-* **LoRA + ControlNet combos** with zero additional training
-* Fast model distillation for **mobile inference** and low-latency previews
+Bonus if you:
+- Have written clean infra or tooling that helped teams scale.
+- Have contributed to open-source or built an impressive side project.
+- Have a strong perspective on how generative models should evolve.
 
-This unlocks real-time use in creator tools, where speed and flexibility are non-negotiable.
+## Perks
 
-If any of this sparks ideas for you — dive into one of our sample problems, or just fork the repo and show us what you’d build differently.
+- Dedicated compute access with high-end GPUs.
+- Fixed-band compensation based on submission quality.
+- End-to-end ownership: from research to production to user experience.
 
-We're excited to see what *you* can create with the right canvas. You’ll own entire flows — from training scripts to serving infra to UI playgrounds. And if you see something slowing you down? You’ll build the tool to fix it.
+## How to Apply
 
-## 🧬 What You’ll Work On
+- Clone this repo.
+- Attempt one of the sample problems — or fork it and show us something better.
+- Email your submission or proposal to: **soumyadeep [at] dashtoon.com**
 
-Some recent open-source drops from our team:
+No Leetcode. Just real problems and real builders.
 
-* 🎞 [Keyframe LoRA: Video generation using only keyframes](https://insiders.dashtoon.com/introducing-hunyuan-keyframe-lora-open-source-keyframe-based-video-generation/)
-* 🧑‍🎨 [Tuning-free ID-consistent inpainting](https://insiders.dashtoon.com/a-road-towards-tuning-free-id-consistent-character-inpainting/)
-* 👗 [DashTailor: Object transfer for AI-generated comics](https://insiders.dashtoon.com/dashtailor-training-free-clothing-and-object-transfer-for-ai-comics/)
-* 🌀 [Adversarial Diffusion Distillation](https://insiders.dashtoon.com/exploring-the-future-of-comic-generation-insights-from-our-adversarial-diffusion-distillation-poc/)
-* ✨ [DashAnimeXL: Stylized diffusion for comic-style animations](https://insiders.dashtoon.com/dashanimexl/)
-
-If any of these excite you, try one of the sample problems. Blow us away.
-
-## 🧪 Who We’re Looking For
-
-We don’t care about your degree, resume, or pedigree. We care about what you’ve **built**, **trained**, or **broken and fixed**.
-
-You might be a great fit if you:
-
-* Have trained/fine-tuned models like **Stable Diffusion**, **AnimateDiff**, or **StyleGAN**
-* Are comfortable with **PyTorch**, **LoRA**, **ControlNet**, **DreamBooth**, or **IP-Adapters**
-* Can wrangle multi-GPU training jobs, inference optimization, and debugging fast
-* Like to move fast and own the full stack from training → UI
-
-Bonus if:
-
-* You’ve written clean infra or internal tools before
-* You’ve contributed to open-source or have a killer side project
-* You’ve got opinions on how generative models should evolve
-
-## 🛠 How to Apply
-
-* Clone this repo.
-* Try one of the sample problems (or fork it and show us something better).
-* Then drop us a line: **[soumyadeep@dashtoon.com](mailto:soumyadeep@dashtoon.com)**
-
-No leetcode. Just real problems and real builders.
-
-If you're the kind of person who wants to go **own the entire stack** — owning fine-tuning, infra, and everything in between — come build with us.
+If you're the kind of person who wants to own the full stack — from fine-tuning to infra to user-facing tools — come build with us.
 
 **Dashverse — Dream it. Generate it. Share it.**
