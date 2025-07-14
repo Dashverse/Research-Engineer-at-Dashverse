@@ -10,169 +10,148 @@ You're building an AI system that blends creativity and cognition — a **multim
 - 🖼️ An **image** in a specific artistic style (e.g., oil painting, sculpture, engraving)  
 - ✍️ A **caption** that accurately describes that exact image  
 
-Think of it like a GAN that doesn’t just paint, but also explains what it painted — in fluent, human language.
+From a single **random seed**, your model should output both — as one unified generative process.
+
+🎨 [Art Images Dataset — Drawing, Painting, Sculpture, Engraving](https://www.kaggle.com/thedownhill/art-images-drawings-painting-sculpture-engraving)
 
 ---
 
 ## 🎯 Your Mission
 
-Given a seed (latent vector, noise, or random number), your model should generate:
+Design a model that can:
 
-1. An image in a chosen artistic style  
-2. A caption that describes the generated image accurately and meaningfully  
+1. Generate an **image** in a chosen art style  
+2. Simultaneously generate a **caption** for the generated image  
+3. Do both from a **shared seed** or latent input — not a two-step pipeline  
 
-You will train your model using a dataset of classical and modern art across styles and mediums.
-
-🎨 [Art Images Dataset — Drawing, Painting, Sculpture, Engraving](https://www.kaggle.com/thedownhill/art-images-drawings-painting-sculpture-engraving)
+This task is about creating a **joint generative model**, where both outputs are derived from the same core representation.
 
 ---
 
 ## 🧠 What You’ll Build
 
 ### ✅ 1. Style Selection & Dataset Prep
-Choose one specific style (e.g., engravings or oil paintings). Clean and preprocess the relevant portion of the dataset.
 
-- Filter ambiguous samples
-- Normalize image size and format
-- Remove or label noisy/missing entries
+Choose a single artistic medium or style from the dataset (e.g., engravings, watercolor paintings, sculptures). Then:
 
----
-
-### ✅ 2. Captioning Pipeline
-Generate descriptive text for each image using a captioning model. Optionally use LLM post-processing to enhance or stylize the captions.
+- Clean, resize, and normalize your dataset  
+- Use a captioning model (e.g. BLIP2) to create descriptive text for each image  
+- Align image-caption pairs for training your model
 
 ---
 
-### ✅ 3. Multimodal Generation System
+### ✅ 2. Unified Multimodal Generator (Image + Caption from a Single Seed)
 
-Build a model that, **from a random seed**, generates:
+Create a **single model or tightly integrated system** that, given a random seed, generates:
 
-- An image in your chosen style  
-- A caption for that specific image  
+- 🖼️ A stylized **image**  
+- ✍️ A **caption** grounded in that exact image  
 
-There are many valid approaches. Some ideas:
-
-#### 🎛 Architecture Concept
-
-```text
-           ┌──────────────┐
-           │  Random Seed │
-           └──────┬───────┘
-                  │
-           ┌──────▼──────┐
-           │  Image Gen  │ ◄── Train on stylized art
-           │ (e.g. SD,   │
-           │   GAN, etc) │
-           └──────┬──────┘
-                  │ Generated Image
-           ┌──────▼──────┐
-           │ Caption Gen │ ◄── Trained on your dataset captions
-           │  (e.g. BLIP)│
-           └─────────────┘
-````
-
-You could also explore **joint training** or **token-level fusion**, depending on how deep you want to go.
+This is **not** a two-stage pipeline (e.g., image → caption). Both outputs should come **from the same latent input**, reflecting shared semantics.
 
 ---
 
-### 🧪 Sample Pseudocode
+### 💡 Suggested Architectures
+
+- **Latent Diffusion Model + Text Decoder**  
+  - Use a latent diffusion backbone to generate images  
+  - Add a transformer head to decode the text directly from the same latent vector
+
+- **GAN-style Generator + Captioning Head**  
+  - Extend StyleGAN or VQGAN to produce a paired text embedding  
+  - Train both with a shared noise vector
+
+- **Multimodal Token Stream Model**  
+  - Inspired by DALL·E or Flamingo: decode both image and caption from one input  
+  - Leverage shared embeddings and transformer blocks
+
+- **Contrastive Latent Mapping**  
+  - Generate both outputs from the same seed and align them in a shared latent space  
+  - Optionally train using a contrastive or CLIP-like loss
+
+---
+
+### 🔁 Pseudocode Example
 
 ```python
-# Step 1: Generate image from noise
+# Unified forward pass from a single seed
 seed = get_random_seed()
-latent = sample_latent_vector(seed)
-image = image_generator(latent)
+image, caption = multimodal_model(seed)
 
-# Step 2: Generate caption for that image
-caption = caption_generator(image)
-
-# Output
 return {
   "image": image,
   "caption": caption
 }
-```
+````
+
+> Bonus if the caption reflects the style or subject matter (e.g., “a bronze sculpture of a roaring lion” instead of “an animal”).
 
 ---
 
 ## 📂 Deliverables
 
-1. A working end-to-end pipeline
+1. Working code for:
 
-   * Data preparation
-   * Image generation
-   * Caption generation
-2. Sample outputs (image + caption)
-3. A `README.md` explaining:
+   * Dataset preparation (including captions)
+   * Model training and inference
+2. A script or demo (Colab/Gradio) that:
 
-   * Dataset choice + cleaning
-   * Architecture + training strategy
-   * Scaling strategy
-   * Any clever optimizations
-4. (Optional) Gradio or Streamlit app to demo the system
+   * Accepts a seed
+   * Generates an image and caption pair
+3. Sample outputs
+4. A `README.md` describing:
+
+   * Style selected and data cleaning
+   * Model architecture and training process
+   * Reasoning and tradeoffs
+   * How your pipeline could scale to 100k+ generations
 
 ---
 
 ## 📈 Evaluation Criteria
 
-We’re evaluating this as a **production problem**, not a Kaggle competition.
+This task is open-ended and creative, but we’ll evaluate based on:
 
-### ✅ What Matters:
-
-* **Scalability** — can your pipeline scale to 100k+ samples?
-* **Modularity** — is your system extendable and cleanly structured?
-* **Quality** — are your images visually consistent? Are your captions relevant and insightful?
-* **Creativity** — did you explore novel architectures, loss functions, or caption stylizations?
-* **Clarity** — is your reasoning and code well-documented?
-
-> ⚠️ This is subjective and open-ended. Focus on *real-world robustness* over theoretical perfection.
+* ✅ **Scalability**: can it handle large dataset or long training runs?
+* ✅ **Multimodal Coherence**: do image and caption match well?
+* ✅ **Style Consistency**: is your chosen art style clearly reflected?
+* ✅ **Code Quality**: modular, clean, and reproducible
+* ✅ **Creativity**: clever architectural or training decisions encouraged!
 
 ---
 
-## 🧱 Architecture Suggestions
+## 🧱 Architecture Tips
 
-Some tech stack ideas to help you move fast:
-
-### Captioning
-
-* `BLIP2`, `GIT`, or `MiniGPT-4` for base captioning
-* Enhance with LLM (e.g., Claude, GPT) for richness
-
-### Training & Scaling
-
-* `PyTorch Lightning` or `HuggingFace Accelerate` for training
-* `Ray`, `Dask`, or `Multiprocessing` for dataset-level parallelization
-* `Weights & Biases` or `TensorBoard` for visualization
-* Save data in `JSONL` or `Parquet` for future pipeline integration
+* Use **BLIP2**, **OFA**, or **GIT** to caption your dataset before training
+* Try **Stable Diffusion + LoRA** for faster finetuning
+* Store data in **JSONL** or **Parquet** for long-term scaling
+* Log intermediate results with **W\&B**, **TensorBoard**, or custom dashboards
 
 ---
 
 ## 💡 Bonus Points
 
-* 💥 Use CLIP-based losses to align images with captions
-* 🎨 Stylize captions to match the medium (e.g., poetic, metaphorical, era-specific)
-* 🔁 Add prompt conditioning for style variation or mood
-* 🌐 Package as a Colab or HuggingFace Space
+* 🎯 Train your model to optionally **condition on prompt + seed**
+* 🎨 Make the caption **style-aware** (e.g., baroque vs modernist tone)
+* 🔁 Add latent space interpolation for smooth transitions
+* 💬 Share a **demo** others can play with!
 
 ---
 
 ## 🗣 Need Help?
 
-This is an open challenge. Reach out at **[ayushman@dashtoon.com](mailto:ayushman@dashtoon.com)** if you want to:
+Want to brainstorm, validate your direction, or show early work?
 
-* Ask questions
-* Clarify dataset concerns
-* Share early outputs for feedback
+Reach us at **soumyadeep [at] dashtoon.com** — we’re excited to see how you build.
 
 ---
 
 ## 🔚 TL;DR
 
-* Pick an art style
-* Build a pipeline to generate images + captions from a seed
-* Make it scale
-* Make it beautiful
-* Make it yours
+* Pick a style
+* Build a unified generator: from seed → image + caption
+* Focus on quality, scale, and creative alignment
+* Deliver something that feels **cohesive** and **intentional**
 
 ---
 
