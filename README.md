@@ -25,6 +25,19 @@ We’re building real tools for real creators — and that means diving deep int
 
 Diffusion models are powerful, but raw outputs often fall short. Whether it's a single comic panel or 120 frames of an AI-generated video, visual quality matters. We're focused on pushing fidelity, coherence, and artistic control to new heights.
 
+**Prompt:** *"A 1950s All India Radio broadcaster reading news in Hindi at a wooden microphone, headphones on and script in hand under soft studio lights."*
+
+<table>
+  <tr>
+    <td><img src="https://content.dashtoon.ai/user-uploaded-files/6663a422-bd14-4e69-bae2-de1860bb3cfe.png" width="512"/></td>
+    <td><img src="https://content.dashtoon.ai/user-uploaded-files/d4b62477-614a-40cc-972d-e9c7b2de6e7f.png" width="512"/></td>
+  </tr>
+  <tr>
+    <td>Flux Dev</td>
+    <td>Dashtoon Model</td>
+  </tr>
+</table>
+
 ### Controllability at the Core
 
 We're developing **creative tools**, not black boxes. That means giving creators meaningful control over outputs:
@@ -32,6 +45,21 @@ We're developing **creative tools**, not black boxes. That means giving creators
 - Conditioning on pose, expression, scene layout, and panel structure.
 - Temporal control for frame-to-frame consistency in videos.
 - Spatial control for region-specific edits.
+
+<table>
+  <tr>
+    <td><img src="https://content.dashtoon.ai/stability-images/df97ec54-4db6-4e22-b743-ea365532b84f.png" width="512"/></td>
+    <td><img src="https://content.dashtoon.ai/stability-images/58465a67-5712-4b3f-8abf-74019971d897.png" width="512"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://content.dashtoon.ai/stability-images/78bf153a-e23f-4ef9-9231-f3d9244121c4.png" width="512"/></td>
+    <td><img src="https://content.dashtoon.ai/stability-images/91acfaec-b637-4266-9ca8-32f3c0c85216.png" width="512"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://content.dashtoon.ai/stability-images/1c7ee699-2482-4362-b2f5-5acf4dd27f2a.png" width="512"/></td>
+    <td><img src="https://content.dashtoon.ai/stability-images/449e5924-2e86-43e0-b566-5618f7026363.png" width="512"/></td>
+  </tr>
+</table>
 
 ### Character Identity & Reusability
 
@@ -42,6 +70,15 @@ Characters aren't just faces — they're consistent, recognizable identities. We
 
 This enables creators to design once and reuse intelligently — with style and consistency.
 
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+  <img src="https://content.dashtoon.ai/stability-images/792d76bf-11b5-44a6-81c7-b7a57b8428b2.png" width="200" style="flex: 1; min-width: 200px; max-width: 300px;"/>
+  <img src="https://content.dashtoon.ai/stability-images/b9c49616-8686-40c3-8261-17918dfd9b8e.png" width="200" style="flex: 1; min-width: 200px; max-width: 300px;"/>
+  <img src="https://content.dashtoon.ai/stability-images/4ed5168f-644b-460b-b912-5c596a9614d9.png" width="200" style="flex: 1; min-width: 200px; max-width: 300px;"/>
+  <img src="https://content.dashtoon.ai/stability-images/53d3c04e-f7cf-4a22-b3c8-aa8ca8393445.png" width="200" style="flex: 1; min-width: 200px; max-width: 300px;"/>
+  <img src="https://content.dashtoon.ai/stability-images/0b6bad0d-d3a3-43fb-b93d-b871c5c57710.png" width="200" style="flex: 1; min-width: 200px; max-width: 300px;"/>
+</div>
+
 ### Scene-Aware Object & Clothing Transfer
 
 We're building pipelines to enable asset-level swaps (outfits, props, etc.) while preserving visual integrity and scene coherence.
@@ -50,6 +87,20 @@ Key techniques include:
 - Semantic segmentation with feature-level transfer.
 - Training-free approaches using adapter stacking.
 - Support for both photoreal and stylized (anime, comic) domains.
+
+
+<table>
+  <tr>
+    <td><strong>Base Image</strong></td>
+    <td><strong>Clothing Image</strong></td>
+    <td><strong>Final Image</strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://content.dashtoon.ai/stability-images/64e995b9-2215-41ff-bd67-55602fb43d0d.webp" width="300"/></td>
+    <td><img src="https://content.dashtoon.ai/user-uploaded-images/08668b84-9882-47d8-920b-0accd5dc2261.webp" width="300"/></td>
+    <td><img src="https://content.dashtoon.ai/stability-images/35933486-d611-434f-8d0f-6a493d97dd4b.webp" width="300"/></td>
+  </tr>
+</table>
 
 ### Training-Free Customization & Distillation
 
